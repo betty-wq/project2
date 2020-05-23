@@ -5,12 +5,12 @@ const carSchema = new Schema({
     name: String,
     img: String,
     stock: Number,
-    MPG: Number,
+    mpg: Number,
     fuel_type: String,
     mileage: Number,
     features: String
 })
 
-const Car = mongoose.model('Car', carSchema)
+const Car = mongoose.model('car', carSchema)
 
 module.exports = Car

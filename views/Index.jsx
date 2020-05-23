@@ -13,12 +13,12 @@ class Index extends React.Component {
                </nav>
                </div>
                <div>
-                   {cars.map((map, index) =>{
+                   {cars.map((car, index) =>{
                        return(
                            <div>
                <h2>{car.name}</h2>
                <a href={'/cars/Show'}><img src={car.img}></img></a>
-               <form action={`/cars/${car._id}? _method=DELETE`} method="post">
+               <form action={`/cars/${car._id}?_method=DELETE`} method="post">
                    <input type="submit" value="delete"/>
                </form>
                <form action={`/cars/edit/${car._id}`} method="GET">

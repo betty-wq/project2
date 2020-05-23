@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project2';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/project2';
 // Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
 // Error / success
@@ -59,8 +59,40 @@ app.get('/cars/New', (req, res) =>{
     res.render('New')
 })
 
+// Create
+app.post('/cars', (req, res) =>{
+    Car.create(req.body, (error, createCar) =>{
+            res.redirect('/cars')
+    })
+})
 
+// Edit
+app.get('/cars/edit/:id', (req, res) =>{
+    Car.findById(req.params.id, (error, foundCar) =>{
+        res.render('Edit', {Car: foundCar})
+    })
+})
 
+// Update
+app.put('/cars/edit/:id', (req, res) =>{
+    Car.findByIdAndUpdate(req.params.id, req.body, (error, data) =>{
+        res.redirect('/cars')
+    })
+})
+
+// Delete
+app.delete('/cars/:id', (req, res) =>{
+    Car.findByIdAndRemove(req.params.id, (error, data) =>{
+        res.redirect('/cars')
+    })
+})
+
+// Show
+app.get('/cars/:id', (req, res) =>{
+     Car.findById(req.params.id, (error, foundCar) =>{
+         res.render('Show', {Car: foundCar})
+     })
+})
 
 
 //___________________
