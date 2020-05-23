@@ -1,12 +1,11 @@
-//___________________
+
 //Dependencies
-//___________________
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
-//___________________
+const Car = require('./models/cars.js')
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
@@ -34,13 +33,36 @@ app.use(express.urlencoded({ extended: false }));// extended: false - does not a
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 //___________________
 // Routes
 //___________________
 //localhost:3000 
+
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
+
+
+app.get('/cars', (req, res) => {
+    Car.find({}, (error, allCars) =>{
+        res.render('Index', {
+          cars: allCars,
+
+        })
+    })
+})
+
+// New
+app.get('/cars/New', (req, res) =>{
+    res.render('New')
+})
+
+
+
+
+
 //___________________
 //Listener
 //___________________
