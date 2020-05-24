@@ -7,7 +7,7 @@ class Index extends React.Component {
        return(
            <Layout>
                <div>
-               <h1>My Cars</h1>
+               <h1 class="jumbotron">My Cars</h1>
                <nav>
                    < a href="/cars/new">Create a new car</a>
                </nav>
