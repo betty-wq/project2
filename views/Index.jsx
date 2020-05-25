@@ -3,6 +3,11 @@ const Layout = require('./Layout.jsx')
 
 class Index extends React.Component {
     render() {
+        const logout = (
+            <form action="/sessions/?_method=delete" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        );
         const { cars } = this.props;
        return(
            <Layout>
