@@ -18,6 +18,7 @@ img:hover{
 .forms{
     text-align: center;
 }
-a{
+div>a{
     color: chartreuse;
+    background-color: skyblue;
 }

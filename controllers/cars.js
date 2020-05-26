@@ -53,7 +53,7 @@ const isAuthenticated = (req, res, next) =>{
           },
           {
               name: '2020 Mercedes-Benz Maybach S 560',
-              img: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-mercedes-maybach-s650-mmp-1-1578591259.jpg?crop=0.752xw:1.00xh;0.152xw,0&resize=768:*',
+              img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90mbcbw1a021001.png',
               price: 173995,
               stock: 3,
               mpg: '16-25',
@@ -73,7 +73,7 @@ const isAuthenticated = (req, res, next) =>{
           },
           {
               name: '2020 Audi A3',
-              img: 'https://inventory-dmg.assets-cdk.com/7/7/3/21479253377.jpg',
+              img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc70auc151a021001.png',
               price: 33300,
               stock: 20,
               mpg: '27-36',
@@ -93,7 +93,7 @@ const isAuthenticated = (req, res, next) =>{
           },
           {
               name: '2019 Cadillac ATS',
-              img: 'https://media.cadillac.com/content/media/us/en/cadillac/vehicles/ats/2019/_jcr_content/mediaVehiclePar/image.img.jpg/1539872271436.jpg',
+              img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc80cac204a021001.png',
               price: 32990,
               stock: 8,
               mpg: '22-30',
