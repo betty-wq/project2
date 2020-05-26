@@ -4,22 +4,23 @@ const Layout = require('./Layout.jsx')
 class Show extends React.Component {
     render() {
         const {car} = this.props;
+        console.log(car)
         return(
              <Layout>
+                 <div class="container">
                  <a href="/cars">Home</a>
-                   <h1>Show Page</h1>
-                   <h2>{car.name}</h2>
+                   <h1>{car.name}</h1>
                    <img src={car.img}/>
-                   <p>{car.price}</p>
-                   <p>{car.stock}</p>
-                   <input type="submit" value="Buy"></input>
+                   <p>Price: $ {car.price}</p>
+                   <p>Stock: {car.stock}</p>
                    <ul>
-                       <li>{car.mpg}</li>
-                       <li>{car.fuel_type}</li>
-                       <li>{car.mileage}</li>
-                       <li>{car.transmission}</li>
-                       <li>{car.features}</li>
+                       <li>MPG: {car.mpg}</li>
+                       <li>Feul Type: {car.fuel_type}</li>
+                       <li>Tansmission: {car.transmission}</li>
+                       <li>Features: {car.features}</li>
                    </ul>
+                   <input type="submit" value="Buy"></input>
+                   </div>
              </Layout>
         )
     }

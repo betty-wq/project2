@@ -6,7 +6,7 @@ const isAuthenticated = (req, res, next) =>{
     if (req.session.currentUser){
         return next()
     } else {
-        res.redirect('/sessions/new')
+        res.redirect('/')
     }
 }
 
@@ -26,7 +26,7 @@ const isAuthenticated = (req, res, next) =>{
   })
   
   // New
-  carController.get('/New', isAuthenticated, (req, res) =>{
+  carController.get('/New', (req, res) =>{
       res.render('New')
   })
   
@@ -38,16 +38,17 @@ const isAuthenticated = (req, res, next) =>{
   })
   
   // Seed
-  carController.get('/cars/seed', (req, res) =>{
+  carController.get('/seed', (req, res) =>{
+      Car.deleteMany({}, () =>{})   // drop
       Car.create([
           {
               name: '2020 BMW 430',
               img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc80bmc743a021001.png',
               price: 50000,
               stock: 5,
-              mpg: 24-27,
+              mpg: '24-27',
               fuel_type: 'Premium',
-              Transmission: 'Automatic',
+              transmission: 'Automatic',
               features: 'USB Connection, 9 Total Speakers, Keyless Ignition, Front And Rear Parking Sensors, Interior Air Filtration, Wireless Charging, ',
           },
           {
@@ -55,19 +56,19 @@ const isAuthenticated = (req, res, next) =>{
               img: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-mercedes-maybach-s650-mmp-1-1578591259.jpg?crop=0.752xw:1.00xh;0.152xw,0&resize=768:*',
               price: 173995,
               stock: 3,
-              mpg: 16-25,
+              mpg: '16-25',
               fuel_type: 'Premium',
-              Transmission: 'Automatic w/OD',
+              transmission: 'Automatic w/OD',
               features: 'ABS brakes automatically sense when a tire has stopped rotating under extreme braking, and will modulate the brake pressure to allow the tire to rotate. This increases the vehicles ability to turn while braking. Stability control automatically senses when the vehicles handling limits have been exceeded and reduces engine power and/or applies select brakes to help prevent the driver from losing control of the vehicle. Knee airbags help to protect the occupants lower extremities from serious injury in the event of an accident. Seatbelt pretensioners automatically tighten seatbelts to place the occupant in the optimal seating position during a collision. The vehicle is equipped with a means of anticipating and/or detecting unwanted vehicle intrusion. The vehicle is equipped with an ignition disable device that will prevent the engine from starting if the correct original manufacturer key is not used.'
           },
           {
               name: '2020 Toyota Camery',
               img: 'https://www.toyota.com/imgix/responsive/images/mlp/colorizer/2020/camry/3U5/1.png?bg=fff&fm=webp',
-              price: 173000,
+              price: 24425,
               stock: 10,
-              mpg: 28-39,
+              mpg: '28-39',
               fuel_type: 'Gasoline',
-              Transmission: '8-speed shiftable Automatic',
+              transmission: '8-speed shiftable Automatic',
               features: 'Remote Anti-Theft Alarm System, Tire Pressure Monitoring, Pre-Collision Safety System, LED Headlamp, Interior Air Filtration, Remote Keyless Power Door Locks, '
           },
           {
@@ -75,9 +76,9 @@ const isAuthenticated = (req, res, next) =>{
               img: 'https://inventory-dmg.assets-cdk.com/7/7/3/21479253377.jpg',
               price: 33300,
               stock: 20,
-              mpg: 27-36,
+              mpg: '27-36',
               fuel_type: 'Gasoline',
-              Transmission: '7-speed automated manual',
+              transmission: '7-speed automated manual',
               features: 'Remote Anti-Theft Alarm System, Side And Rear Cross Traffic Assist Package, Auxiliary Audio Input, Keyless Ignition,'
           },
           {
@@ -85,9 +86,9 @@ const isAuthenticated = (req, res, next) =>{
               img: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-bentley-continental-gt-v8-coupe-110-1561493228.jpg',
               price: 218900,
               stock: 5,
-              mpg: 16-26,
+              mpg: '16-26',
               fuel_type: 'Gasoline',
-              Transmission: '8-speed automated manual',
+              transmission: '8-speed automated manual',
               features: 'Leather front and rear seat upholstery, Driver and passenger heated-seatbacks, Real-time weather display, Primary monitor touchscreen, Wireless phone connectivity'
           },
           {
@@ -95,9 +96,9 @@ const isAuthenticated = (req, res, next) =>{
               img: 'https://media.cadillac.com/content/media/us/en/cadillac/vehicles/ats/2019/_jcr_content/mediaVehiclePar/image.img.jpg/1539872271436.jpg',
               price: 39990,
               stock: 8,
-              mpg: 22-30,
+              mpg: '22-30',
               fuel_type: 'Gasoline',
-              Transmission: '8-speed automatic',
+              transmission: '8-speed automatic',
               features: 'Emergency Braking Assist, Tire Pressure Monitoring, All-Weather Mat Protection Package, Heated Steering Wheel, Multi-Level Heating Driver Seat,'
           }
       ], (error, data) =>{

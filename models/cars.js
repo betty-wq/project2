@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 
 const carSchema = new Schema({
     name: String,
+    price: Number,
     img: String,
     stock: Number,
-    mpg: Number,
+    mpg: String,
     fuel_type: String,
-    mileage: Number,
     transmission: String,
     features: String
 })
