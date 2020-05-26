@@ -11,12 +11,11 @@ class Index extends React.Component {
         const { cars } = this.props;
        return(
            <Layout>
-               <div>
+               <div class="container">
                <h1 class="jumbotron">My Cars</h1>
                <nav>
                    < a href="/cars/new">Create a new car</a>
                </nav>
-               </div>
                <div>
                    {cars.map((car, index) =>{
                        return(
@@ -32,6 +31,7 @@ class Index extends React.Component {
                </div>
                   )
                })}
+               </div>
                </div>
            </Layout>
        )

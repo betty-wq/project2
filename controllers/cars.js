@@ -115,14 +115,14 @@ const isAuthenticated = (req, res, next) =>{
   // Show
   carController.get('/:id', (req, res) =>{
       Car.findById(req.params.id, (error, foundCar) =>{
-          res.render('Show', {Car: foundCar})
+          res.render('Show', {car: foundCar})
       })
   })
   
   // Edit
   carController.get('/edit/:id', (req, res) =>{
       Car.findById(req.params.id, (error, foundCar) =>{
-          res.render('Edit', {Car: foundCar})
+          res.render('Edit', {car: foundCar})
       })
   })
   
