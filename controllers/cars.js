@@ -83,8 +83,8 @@ const isAuthenticated = (req, res, next) =>{
           },
           {
               name: '2020 Bentley Continental GT',
-              img: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-bentley-continental-gt-v8-coupe-110-1561493228.jpg',
-              price: 218900,
+              img: 'https://www.astonmartinwashingtondc.com/imagetag/1745/main/l/New-2020-BENTLEY-CONTINENTAL-GT-V8.jpg',
+              price: 202500,
               stock: 5,
               mpg: '16-26',
               fuel_type: 'Gasoline',
@@ -94,7 +94,7 @@ const isAuthenticated = (req, res, next) =>{
           {
               name: '2019 Cadillac ATS',
               img: 'https://media.cadillac.com/content/media/us/en/cadillac/vehicles/ats/2019/_jcr_content/mediaVehiclePar/image.img.jpg/1539872271436.jpg',
-              price: 39990,
+              price: 32990,
               stock: 8,
               mpg: '22-30',
               fuel_type: 'Gasoline',
