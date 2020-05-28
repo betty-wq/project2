@@ -25,6 +25,7 @@ const isAuthenticated = (req, res, next) =>{
       })
   })
   
+
   // New
   carController.get('/New', (req, res) =>{
       res.render('New')
@@ -33,19 +34,19 @@ const isAuthenticated = (req, res, next) =>{
   // Create
   carController.post('/', (req, res) =>{
       Car.create(req.body, (error, createCar) =>{
-              res.redirect('/cars')
+              res.redirect('/cars/display')
       })
   })
   
   // Seed
-  carController.get('/seed', (req, res) =>{
+  carController.get('/display/seed', (req, res) =>{
       Car.deleteMany({}, () =>{})   // drop
       Car.create([
           {
               name: '2020 BMW 430',
               img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc80bmc743a021001.png',
+              img2: 'https://www.cstatic-images.com/car-pictures/xl/usc80bmc743a021003.png',
               price: 50000,
-              stock: 5,
               mpg: '24-27',
               fuel_type: 'Premium',
               transmission: 'Automatic',
@@ -54,8 +55,8 @@ const isAuthenticated = (req, res, next) =>{
           {
               name: '2020 Mercedes-Benz Maybach S 560',
               img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90mbcbw1a021001.png',
+              img2: 'https://www.cstatic-images.com/car-pictures/xl/usc90mbcbw1a021003.png',
               price: 173995,
-              stock: 3,
               mpg: '16-25',
               fuel_type: 'Premium',
               transmission: 'Automatic w/OD',
@@ -63,9 +64,9 @@ const isAuthenticated = (req, res, next) =>{
           },
           {
               name: '2020 Toyota Camery',
-              img: 'https://www.toyota.com/imgix/responsive/images/mlp/colorizer/2020/camry/3U5/1.png?bg=fff&fm=webp',
+              img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd00toc021i021001.png',
+              img2: 'https://www.cstatic-images.com/car-pictures/xl/usd00toc021i021003.png',
               price: 24425,
-              stock: 10,
               mpg: '28-39',
               fuel_type: 'Gasoline',
               transmission: '8-speed shiftable Automatic',
@@ -74,8 +75,8 @@ const isAuthenticated = (req, res, next) =>{
           {
               name: '2020 Audi A3',
               img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc70auc151a021001.png',
+              img2: 'https://www.cstatic-images.com/car-pictures/xl/usc70auc151a021003.png',
               price: 33300,
-              stock: 20,
               mpg: '27-36',
               fuel_type: 'Gasoline',
               transmission: '7-speed automated manual',
@@ -83,9 +84,9 @@ const isAuthenticated = (req, res, next) =>{
           },
           {
               name: '2020 Bentley Continental GT',
-              img: 'https://www.astonmartinwashingtondc.com/imagetag/1745/main/l/New-2020-BENTLEY-CONTINENTAL-GT-V8.jpg',
+              img: 'https://car-pictures.cars.com/images/?IMG=USC90BEC062A01300.jpg&HEIGHT=600',
+              img2: 'https://car-pictures.cars.com/images/?IMG=USD00BEC062B01300.jpg&HEIGHT=600',
               price: 202500,
-              stock: 5,
               mpg: '16-26',
               fuel_type: 'Gasoline',
               transmission: '8-speed automated manual',
@@ -94,25 +95,31 @@ const isAuthenticated = (req, res, next) =>{
           {
               name: '2019 Cadillac ATS',
               img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc80cac204a021001.png',
+              img2: 'https://www.cstatic-images.com/car-pictures/xl/usc80cac204a021003.png',
               price: 32990,
-              stock: 8,
               mpg: '22-30',
               fuel_type: 'Gasoline',
               transmission: '8-speed automatic',
               features: 'Emergency Braking Assist, Tire Pressure Monitoring, All-Weather Mat Protection Package, Heated Steering Wheel, Multi-Level Heating Driver Seat,'
           }
       ], (error, data) =>{
-          res.redirect('/cars')
+          res.redirect('/cars/display')
       })
   })
   
   // Delete
   carController.delete('/:id', (req, res) =>{
       Car.findByIdAndRemove(req.params.id, (error, data) =>{
-          res.redirect('/cars')
+          res.redirect('/cars/display')
       })
   })
   
+// Display
+carController.get('/display', (req, res) =>{
+    Car.find({}, (error, allCars)=>{
+        res.render('Display', {cars: allCars})
+    })
+})
   // Show
   carController.get('/:id', (req, res) =>{
       Car.findById(req.params.id, (error, foundCar) =>{

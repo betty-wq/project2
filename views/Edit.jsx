@@ -7,13 +7,12 @@ class Edit extends React.Component{
         return(
             <Layout>
                 <div class="container">
-                <a href="/cars">Home</a>
-                <h1>Edit Page</h1>
+                <a href="/cars/display" class="btn btn-secondary">Return To Display</a>
+                <h1 class="jumbotron">Edit</h1>
                 <form class="forms" action={`/cars/edit/${car._id}?_method=put`} method="POST">
                       Name:        <input type="text" name="name"/><br/>
                       Price:       <input type="number" name="price" min="0"/><br/>
                       Image:        <input type="text" name="img"/><br/>
-                      Stock:        <input type="number" name="stock" min="0"/><br/>
                       MPG:          <input type="text" name="mpg"/><br/>
                       Fuel Type:    <input type="text" name="fuel type"/><br/>
                       Transmission: <input type="text" name="transmission"/><br/>

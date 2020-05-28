@@ -1,11 +1,13 @@
 const React = require('react')
+const Layout = require('../Layout.jsx')
 
 class LoginUser extends React.Component {
     render(){
         return(
-            <div>
+            <Layout>
+            <div class="container">
                 <a href="/cars">Home</a><br/>
-                <a href="./users/new.jsx">New User</a>
+                <a href="/user/new">Sign up</a>
                 <h1>Login</h1>
                 <form action="/sessions/" method="POST">
                     username: <input type="text" name="username"/><br/>
@@ -13,6 +15,7 @@ class LoginUser extends React.Component {
                     <input type="submit" value="login"/>
                 </form>
             </div>
+            </Layout>
         )
     }
 }

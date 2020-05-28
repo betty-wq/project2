@@ -8,18 +8,20 @@ class Show extends React.Component {
         return(
              <Layout>
                  <div class="container">
-                 <a href="/cars">Home</a>
+                 <a href="/cars/display" class="btn btn-secondary">Return To Display</a>
                    <h1>{car.name}</h1>
                    <img src={car.img}/>
+                   <img src={car.img2}></img>
                    <p>Price: $ {car.price}</p>
-                   <p>Stock: {car.stock}</p>
                    <ul>
-                       <li>MPG: {car.mpg}</li>
-                       <li>Feul Type: {car.fuel_type}</li>
-                       <li>Tansmission: {car.transmission}</li>
-                       <li>Features: {car.features}</li>
+                       <li class="list-group-item">MPG: {car.mpg}</li>
+                       <li class="list-group-item">Feul Type: {car.fuel_type}</li>
+                       <li class="list-group-item">Tansmission: {car.transmission}</li>
+                       <li class="list-group-item">Features: {car.features}</li>
                    </ul>
-                   <input type="submit" value="Buy"></input>
+                   <form action={`/cars/${car._id}?_method=DELETE`} method="post">
+                   <input id="button" type="submit" value="Buy"/>
+                   </form>
                    </div>
              </Layout>
         )
