@@ -137,7 +137,7 @@ carController.get('/display', (req, res) =>{
   // Update
   carController.put('/edit/:id', (req, res) =>{
       Car.findByIdAndUpdate(req.params.id, req.body, (error, data) =>{
-          res.redirect('/cars')
+          res.redirect('/cars/display')
       })
   })
   
